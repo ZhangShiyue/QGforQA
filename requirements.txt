@@ -1,0 +1,5 @@
+tensorflow-gpu==1.11.0
+stanford-corenlp
+tqdm
+h5py
+ujson
