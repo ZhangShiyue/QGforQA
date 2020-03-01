@@ -97,8 +97,10 @@ def train(config):
                                              sess, dev_iterator, id2word, evaluate_func=evaluate_simple)
                     write_metrics(metrics, writer, global_step, "dev")
 
-                    if metrics["bleu"] > best_bleu:
-                        save(config.best_ckpt, {"best_bleu": str(metrics["bleu"]), "best_ckpt": str(global_step)},
+                    bleu = metrics["bleu"]
+                    if bleu > best_bleu:
+                        best_bleu, best_ckpt = bleu, global_step
+                        save(config.best_ckpt, {"best_bleu": str(best_bleu), "best_ckpt": str(best_ckpt)},
                              config.best_ckpt)
 
 
@@ -290,9 +292,11 @@ def train_rl(config):
                                      sess_qg, dev_iterator, id2word, evaluate_func=evaluate_simple)
             write_metrics(metrics, writer, global_step, "dev")
 
-            if metrics["bleu"] > best_bleu:
-                save(config.best_qg_ckpt, {"best_bleu": str(metrics["bleu"]), "best_ckpt": str(global_step)},
-                     config.best_qg_ckpt)
+            bleu = metrics["bleu"]
+            if bleu > best_bleu:
+                best_bleu, best_ckpt = bleu, global_step
+                save(config.best_ckpt, {"best_bleu": str(best_bleu), "best_ckpt": str(best_ckpt)},
+                     config.best_ckpt)
 
 
 def train_qpp(config):
