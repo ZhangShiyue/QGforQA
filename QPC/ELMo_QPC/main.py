@@ -123,7 +123,7 @@ def evaluate_batch(config, model, num_batches, eval_file, sess, iterator):
         loss, pred_label = sess.run([model.loss, model.pred_label],
                                     feed_dict={
                                         model.que1: que1, model.que2: que2, model.label: label,
-                                        model.dropout: config.dropout, model.qa_id: qa_id,
+                                        model.qa_id: qa_id
                                     })
         answer_dict_ = {}
         for qid, pl in zip(list(qa_id), list(np.argmax(pred_label, axis=1))):
