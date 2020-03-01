@@ -277,7 +277,6 @@ class QGModel(object):
                 h, state = self.decoder_cell(cinp, state)
                 # compute context vector
                 attn, _, attn_w = bilinear_attention(tf.expand_dims(h, 1), units=self.d, num_heads=1,
-                                                     # attns=tf.expand_dims(tf.reduce_sum(coverage, 0), 1),
                                                      memory=memory, scope="temporal_attention",
                                                      mask=self.para_mask, bias=False, return_weights=True)
                 attn_dim = attn.get_shape().as_list()[-1]

@@ -100,8 +100,8 @@ flags.DEFINE_float("grad_clip", 5.0, "Global Norm gradient clipping rate")
 flags.DEFINE_float("mixing_ratio", 0.99, "The mixing ratio between ml loss and rl loss")
 flags.DEFINE_string("rl_metric", "bleu", "The metric used for RL")
 # training directory
-flags.DEFINE_string("output_dir", "train/model_elmo_qg_qpp_qap", "Directory for tf event")
-flags.DEFINE_string("best_ckpt", "train/model_elmo_qg_qpp_qap/best_ckpt.json", "The best checkpoint")
+flags.DEFINE_string("output_dir", "train/model", "Directory for tf event")
+flags.DEFINE_string("best_ckpt", "train/model/best_ckpt.json", "The best checkpoint")
 # QPC training directory
 flags.DEFINE_string("output_dir_qpc", "../../QPC/ELMo_QPC/train/model_elmo_qpc", "Directory for tf event")
 flags.DEFINE_string("best_ckpt_qpc", "../../QPC/ELMo_QPC/train/model_elmo_qpc/best_ckpt.json", "The best checkpoint")
