@@ -1,4 +1,4 @@
-tensorflow-gpu==1.11.0
+tensorflow-gpu==2.5.1
 stanford-corenlp
 tqdm
 h5py
